@@ -1,0 +1,48 @@
+// Place all the styles related to the employees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signature{
+  display:none;
+}
+
+a {
+  text-align: center;
+  text-decoration: none !important;
+}
+
+form {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.new-emp-btn{
+  max-width: 300px;
+  float:right;
+}
+
+.sc-search-form{
+  float:left;
+}
+
+.cancel-button{
+  max-width: 300px;
+  margin: -20px auto 5px auto;
+}
+
+.employee-page-wrapper{
+  max-width:500px;
+  margin: 0px auto;
+}
+
+@media print
+{
+    .no-print{
+       display: none !important;
+    }
+
+    .yes-print{
+      display:block;
+    }
+}

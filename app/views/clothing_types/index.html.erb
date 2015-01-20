@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><h2>Clothing Types</h2></div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @clothing_type.each do |ct| %>
+          <tr>
+            <td><strong><%= ct.name %></strong></td>
+            <td><%= number_to_currency(ct.unit_price, unit: "₱ ") %></td>
+            <td><%= ct.description %></td>
+            <td>
+              <div class="row">
+                <div class="col-xs-3 col-lg-6"><%= link_to 'Edit', edit_clothing_type_path(ct), class: "btn btn-warning btn-block" %></div>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <hr/>
+      <%= link_to 'Add Clothing Type', new_clothing_type_path, class: "btn-lg btn-success btn-block btn-block add-ct-btn" %>
+    </div>
+  </div>
+</div>

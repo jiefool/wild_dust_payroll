@@ -1,0 +1,12 @@
+
+<table class="table">
+  <%= form_for([@employee, @sewed_clothing]) do |f| %>
+  <tr>
+    <td><%= f.text_field :owner_name, class: "form-control", placeholder: "Owner name", required: true %></td>
+    <td><%= f.collection_select :clothing_type_id, ClothingType.all, :id, :name, {prompt: true}, {class: "form-control", required: true} %></td>
+    <td><%= f.text_field :quantity, class: "form-control", placeholder: "Quantity", required: true %></td>
+    <td><%= f.submit class: "btn btn-success btn-block new-emp-btn" %></td>
+  </tr>
+  <% end %>
+</table>
+

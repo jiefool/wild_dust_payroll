@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><h2>Employees</h2></div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+      	  <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Birthday</th>
+      	  </tr>
+        </thead>
+        <tbody>
+      	  <% @employees.each do |employee| %>
+      		<tr>
+      	      <td><%= link_to employee.full_name, employee_path(employee) %></td>
+      	      <td><%= employee.address %></td>
+      	      <td><%= employee.birthday %></td>
+      	  </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <hr />
+      <%= link_to "Add New Employee", new_employee_path, class: "btn btn-lg btn-success btn-block new-emp-btn" %>
+    </div>
+  </div>
+</div>

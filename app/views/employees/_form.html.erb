@@ -1,0 +1,27 @@
+<%= form_for(@employee) do |f| %>
+  <p>
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name, class: "form-control", placeholder: "e.g. \"Jay Paul\"", required: true %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "e.g. \"Ayingl\"", required: true %>
+  </p>
+  <p>
+    <%= f.label :address %><br/>
+    <%= f.text_field :address, class: "form-control", placeholder: "e.g. \"Tagbilaran City\"", required: true %>
+  </p>
+  <p>
+    <%= f.label :contact_details %><br/>
+    <%= f.text_field :contact_details, class: "form-control", placeholder: "e.g. \"Mobile | Email | Home\"", required: true %>
+  </p>
+  <p>
+    <%= f.label :birthday %><br/>
+    <%= f.date_field :birthday, class: "form-control", required: true  %>
+  </p>
+  <hr />
+  <p>
+    <%= f.submit class: "btn btn-lg btn-success btn-block" %>
+    <%= link_to 'Cancel', employees_path, class: "btn btn-lg btn-danger btn-block" %>
+  </p>
+<% end %>
