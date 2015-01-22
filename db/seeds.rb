@@ -1,7 +1,6 @@
 e1 = Employee.create(first_name: "Jay Paul",
                 last_name: "Aying",
                 address: "Ma. Clara st., Tagbilaran City",
-                age: 24,
                 birthday: '1990-09-13')
 
 c1 = ClothingType.create(name: "Jersey",
