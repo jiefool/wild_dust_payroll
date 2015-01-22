@@ -18,3 +18,5 @@ s1 = e1.sewed_clothings.create!(owner_name: "Carmelita Aying",
 s2 = e1.sewed_clothings.create!(owner_name: "Felicisimo Aying",
                           quantity: 2,
                           clothing_type_id: c2.id)
+
+User.create(username: "wild_dust", email: "jaypaulaying5@gmail.com", password: "wilddust_2015")
