@@ -36,12 +36,12 @@ end
 group :test, :development do
 	gem 'rspec-rails', '2.13.1'
 	gem 'guard',       '~> 2.10.2'
+  gem 'sqlite3'
 end
-
-gem 'sqlite3'
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 
 group :test do
