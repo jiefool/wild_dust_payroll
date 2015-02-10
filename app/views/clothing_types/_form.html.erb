@@ -1,4 +1,15 @@
 <%= form_for(@clothing_type) do |f| %>
+  <% if @clothing_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clothing_type.errors.count, 'error') %> <%= 'prohibited this Clothing type from being saved' %>:</h2>
+      <ul>
+      <% @clothing_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :name %><br/>
     <%= f.text_field :name, class: "form-control", require: true, placeholder: "e.g. \"Polo, Sando\"" %>

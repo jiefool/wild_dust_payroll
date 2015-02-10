@@ -3,27 +3,7 @@
     <div class="panel-body">
       <div class="panel panel-default">
         <div class="panel-heading no-print"><h3>Personal Info</h3></div>
-        <ul class="list-group">
-          <li class="list-group-item">Name: <b><%= @employee.full_name %></b></li>
-          <li class="list-group-item">Address: <b><%= @employee.address %></b></li>
-          <li class="list-group-item">Age: <b><%= distance_of_time_in_words(Date.current, @employee.birthday) %> old</b></li>
-          <li class="list-group-item">Contact Details: <b><%= format_contact_details(@employee.contact_details) %></b></li>
-          <li class="list-group-item">Birthday: <b><%= @employee.birthday %></b></li>
-          <li class="list-group-item">
-            <div class="row no-print">
-              <div class="col-xs-6 col-lg-2"></div>
-              <div class="col-xs-6 col-lg-2"></div>
-              <div class="col-xs-6 col-lg-2"></div>
-              <div class="col-xs-6 col-lg-2"></div>
-              <div class="col-xs-6 col-lg-2">
-                <%= link_to "Edit", edit_employee_path(@employee), class: "btn btn-lg btn-warning btn-block" %>
-              </div>
-              <div class="col-xs-6 col-lg-2">
-                <%= link_to "Delete", employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-lg btn-danger btn-block" %>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <%= render @employee %>
       </div>
 
       <div class="panel panel-default">
@@ -33,11 +13,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <%= form_tag(employee_path(@employee), :method => "get", id: "sew-date-form") do %>
-                    <td><h4>Date: <%= time_tag @sewed_date.to_date %></h4></td>
-                    <td class="no-print"><%= select_tag :sew_date, options_for_select(@employee.formatted_sewed_clothing_dates, @sewed_date), class: "form-control" %></td>
-                    <td class="no-print"><%= submit_tag "Search", class: "btn btn-primary btn-block" %></td>
-                  <% end %>
+                  <%= render "employees/search_date_form" %>
                 </tr>
               </thead>
             </table>
@@ -56,26 +32,9 @@
                 </tr>
               </thead>
               <tbody>
-                <% @sewed_clothings_on_date.each_with_index do |sc, index| %>
-                <tr>
-                  <td><%= index + 1 %></td>
-                  <td><%= sc.owner_name %></td>
-                  <td><%= sc.clothing_type.name %></td>
-                  <td><%= sc.quantity %></td>
-                  <td><%= number_to_currency(sc.clothing_type.unit_price, unit: "₱ ") %></td>
-                  <td><%= number_to_currency(sc.total, unit: "₱ ") %></td>
-                  <td>
-                    <div class="row no-print">
-                      <div class="col-xs-6 col-lg-4">
-                        <%= link_to "Edit", edit_employee_sewed_clothing_path(@employee, sc), class: "btn btn-warning btn-block" %>
-                      </div>
-                      <div class="col-xs-6 col-lg-4">
-                        <%= link_to "Delete", employee_sewed_clothing_path(@employee, sc), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <% end %>
+                <% @sewed_clothings_on_date.each_with_index do |sewed_clothing, index| %>
+                  <%= render sewed_clothing, index: index %>
+                <% end %>                          
                 <tr>
                   <td></td>
                   <td></td>

@@ -1,7 +1,8 @@
 class ClothingTypesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,
+                :set_clothing_type, only:[:edit, :update]  
 	def index
-    @clothing_type = ClothingType.all
+    @clothing_types = ClothingType.all
   end
 
   def new
@@ -14,27 +15,20 @@ class ClothingTypesController < ApplicationController
     redirect_to clothing_types_path
   end
 
-  def show
-    @clothing_type = ClothingType.find(params[:id])
-  end
-
-  def edit
-    @clothing_type = ClothingType.find(params[:id])
+  def edit    
   end
 
   def update
-    @clothing_type = ClothingType.find(params[:id])
     @clothing_type.update(clothing_type_params)
     redirect_to clothing_types_path
-  end
-
-  def destroy
-    ClothingType.find(params[:id]).destroy
-    redirect_to clothing_types_url
   end
 
   private
   def clothing_type_params
     params.require(:clothing_type).permit(:name, :description, :unit_price)
+  end
+
+  def set_clothing_type
+    @clothing_type = ClothingType.find(params[:id])
   end
 end

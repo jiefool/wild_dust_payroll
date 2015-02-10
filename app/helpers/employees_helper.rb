@@ -10,4 +10,5 @@ module EmployeesHelper
   def format_contact_details(contact_details)
     contact_details.blank? ? "None" : contact_details
   end
+
 end

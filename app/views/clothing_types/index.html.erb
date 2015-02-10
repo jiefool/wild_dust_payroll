@@ -4,6 +4,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th>#</th>
             <th>Name</th>
             <th>Price</th>
             <th>Description</th>
@@ -11,16 +12,8 @@
           </tr>
         </thead>
         <tbody>
-          <% @clothing_type.each do |ct| %>
-          <tr>
-            <td><strong><%= ct.name %></strong></td>
-            <td><%= number_to_currency(ct.unit_price, unit: "₱ ") %></td>
-            <td><%= ct.description %></td>
-            <td>
-              <div class="row">
-                <div class="col-xs-3 col-lg-6"><%= link_to 'Edit', edit_clothing_type_path(ct), class: "btn btn-warning btn-block" %></div>
-            </td>
-          </tr>
+          <% @clothing_types.each_with_index do |clothing_type, index| %>
+            <%= render clothing_type, index: index %> 
           <% end %>
         </tbody>
       </table>
