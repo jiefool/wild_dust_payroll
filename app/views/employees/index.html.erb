@@ -1,26 +1,33 @@
 <div class="panel panel-default">
   <div class="panel-heading"><h2>Employees</h2></div>
     <div class="panel-body">
-      <table class="table">
-        <thead>
-      	  <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Birthday</th>
-      	  </tr>
-        </thead>
-        <tbody>
-      	  <% @employees.each do |employee| %>
-      		<tr>
-      	      <td><%= link_to employee.full_name, employee_path(employee) %></td>
-      	      <td><%= employee.address %></td>
-      	      <td><%= employee.birthday %></td>
-      	  </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <hr />
-      <%= link_to "Add New Employee", new_employee_path, class: "btn btn-lg btn-success btn-block new-emp-btn" %>
+      <div class="row table-header">
+        <div class="col-md-4">
+          <h4>Name</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>Address</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>Contact Details</h4>
+        </div>
+      </div>
+      <hr class="table-line"/>
+      <% @employees.each do |employee| %>
+        <% @employee = employee %>
+        <div class="row">
+            <div class="col-md-4"><%= link_to employee.full_name, employee_path(employee) %></div>
+            <div class="col-md-4"><%= format_address %></div>
+            <div class="col-md-4"><%= format_contact_details %></div>
+        </div>
+        <hr/>
+      <% end %>
+
+      <div class="row">        
+        <div class="col-md-4  col-md-offset-8">
+          <%= link_to "Add New Employee", new_employee_path, class: "btn btn-lg btn-success btn-block new-emp-btn" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

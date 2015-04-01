@@ -1,5 +1,6 @@
 class SewedClothing < ActiveRecord::Base
-  validate_precense_of :owner_name, :quantity, :clothing_type_id
+  validates_presence_of :owner_name, :quantity, :clothing_type_id
+  validates :quantity, numericality: true
   belongs_to :employee
   belongs_to :clothing_type
   scope      :current_sewed, -> { where("created_at BETWEEN '#{DateTime.now.midnight.to_s(:db)}' AND '#{((DateTime.now.midnight)+1).to_s(:db)}'") }

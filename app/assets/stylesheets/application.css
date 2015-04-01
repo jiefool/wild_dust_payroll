@@ -13,8 +13,22 @@
  *= require_tree .
  */
 
- .prompt-messages{
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
- }
+.field-label{
+  display: none;    
+}
+@media (max-width: 768px) {
+  .table-header,
+  .table-line{
+    display:none;
+  }
+
+  .field-margin div{
+    margin: 5px;
+  }
+
+  .field-label{
+    display: inline-block;  
+    margin-right:5px;  
+    font-size: 0.9em;
+  }
+}

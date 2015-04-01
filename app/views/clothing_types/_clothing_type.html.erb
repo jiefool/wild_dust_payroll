@@ -1,10 +1,10 @@
- <%= content_tag_for(:tr, clothing_type, index) %>
-  <td><strong><%= index + 1 %></strong></td>
-  <td><strong><%= clothing_type.name %></strong></td>
-  <td><%= number_to_currency(clothing_type.unit_price, unit: "₱ ") %></td>
-  <td><%= clothing_type.description %></td>
-  <td>
-    <div class="row">
-      <div class="col-xs-3 col-lg-6"><%= link_to 'Edit', edit_clothing_type_path(clothing_type), class: "btn btn-warning btn-block" %></div>
-  </td>
-</tr>
+<%= content_tag_for(:tr, clothing_type, index) %>
+  <div class="col-md-1"><%= index + 1 %></div>
+  <div class="col-md-3"><%= clothing_type.name %></div>
+  <div class="col-md-2"><%= number_to_currency(clothing_type.unit_price, unit: "₱ ") %></div>
+  <div class="col-md-3"><%= clothing_type.description %></div>
+  <div class="col-md-3">    
+      <%= link_to 'Edit', edit_clothing_type_path(clothing_type), class: "btn btn-warning btn-block" %>
+  </div>
+
+

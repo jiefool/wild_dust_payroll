@@ -36,11 +36,16 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="container">
-    <div class="prompt-messages">
-      <%= prompts(notice, alert) %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="prompt-messages">
+          <%= prompts(notice, alert) %>
+        </div>
+        <%= yield %>
+      </div>
     </div>
-    <%= yield %>
   </div>
 </body>
 </html>

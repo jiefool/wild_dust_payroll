@@ -1,4 +1,15 @@
 <%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, 'error') %> <%= 'prohibited this Clothing type from being saved' %>:</h2>
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <p>
     <%= f.label :first_name %><br/>
     <%= f.text_field :first_name, class: "form-control", placeholder: "e.g. \"Jay Paul\"", required: true %>

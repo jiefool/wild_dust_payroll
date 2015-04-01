@@ -1,24 +1,24 @@
 <div class="panel panel-default">
   <div class="panel-heading"><h2>Clothing Types</h2></div>
-    <div class="panel-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
+  <div class="panel-body">
+    <div class="row table-header">              
+      <div class="col-md-1"><strong>#</strong></div>
+      <div class="col-md-3"><strong>Name</strong></div>
+      <div class="col-md-2"><strong>Price</strong></div>
+      <div class="col-md-3"><strong>Description</strong></div>
+      <div class="col-md-3"><strong>Action</strong></div>
+    </div>
+    <hr class="table-line"/>
+    <div class="row">      
           <% @clothing_types.each_with_index do |clothing_type, index| %>
             <%= render clothing_type, index: index %> 
           <% end %>
-        </tbody>
-      </table>
-      <hr/>
-      <%= link_to 'Add Clothing Type', new_clothing_type_path, class: "btn-lg btn-success btn-block btn-block add-ct-btn" %>
+    </div>        
+    <hr/>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-9">
+        <%= link_to 'Add Clothing Type', new_clothing_type_path, class: "btn btn-lg btn-success btn-block" %>
+      </div>
     </div>
   </div>
 </div>
