@@ -12,6 +12,6 @@ class Employee < ActiveRecord::Base
   end
 
   def sewed_clothing_dates
-    sewed_clothings.order("created_at DESC").group("DATE(created_at)").pluck(:created_at)
+    sewed_clothings.order("created_at DESC").group("DATE(sewed_clothings.created_at)").pluck(:created_at)
   end
 end
