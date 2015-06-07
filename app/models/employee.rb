@@ -8,10 +8,10 @@ class Employee < ActiveRecord::Base
 	end
 
   def formatted_sewed_clothing_dates
-    sewed_clothing_dates.map {|date| date.to_date}
+    self.sewed_clothing_dates.map {|date| date.to_date}
   end
 
   def sewed_clothing_dates
-    sewed_clothings.group("DATE(created_at)").reorder("created_at DESC").pluck(:created_at)
+    self.sewed_clothings.group("DATE(created_at)").pluck(:created_at)
   end
 end
