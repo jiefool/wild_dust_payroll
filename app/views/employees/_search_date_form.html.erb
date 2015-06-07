@@ -3,7 +3,7 @@
     <h4>Date: <%= time_tag @sewed_date.to_date %></h4>
   </div>
   <div class="col-md-4 col-md-offset-2 no-print">
-    <%= select_tag :sew_date, options_for_select(@employee.formatted_sewed_clothing_dates, @sewed_date), {class: "form-control", prompt: "Select date"} %>
+    <%= select_tag :sew_date, options_for_select(@employee.sewed_clothings.sewed_clothing_dates, @sewed_date), {class: "form-control", prompt: "Select date"} %>
   </div>
   <div class="col-md-2 no-print">
     <%= submit_tag "Search", class: "btn btn-primary btn-block" %>
