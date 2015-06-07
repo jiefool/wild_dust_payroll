@@ -10,6 +10,13 @@ class EmployeesController < ApplicationController
     @sewed_date = params[:sew_date].blank? ? Time.now : params[:sew_date].to_date
     @sewed_clothings_on_date = @employee.sewed_clothings.sewed_on_date(@sewed_date.strftime("%Y-%m-%d"))
     @sewed_clothing = @employee.sewed_clothings.new
+    @sewed_clothing_dates = sewed_clothing_dates(@employee).uniq
+  end
+
+  def sewed_clothing_dates(employee)
+    employee.sewed_clothings.pluck(:created_at).map do |date|
+      date.to_date
+    end    
   end
 
   def new

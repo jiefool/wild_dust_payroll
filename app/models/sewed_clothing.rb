@@ -12,9 +12,5 @@ class SewedClothing < ActiveRecord::Base
   def self.sewed_on_date(date)
     where("created_at LIKE ?", "%#{date}%")
   end
-
-  def self.sewed_clothing_dates
-    group("DATE(created_at)").pluck(:created_at).map {|date| date.to_date}
-  end
 end
 
