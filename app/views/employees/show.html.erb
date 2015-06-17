@@ -33,10 +33,11 @@
                 <hr/>     
               <% end %>               
             
-            <hr/>                      
-            <div class="row">
-                <div class="col-md-1 col-md-offset-6">Total: </div>
-                <div class="col-md-2">
+            <hr class="table-line"/>                      
+            <div class="row total-div">
+                <div class="col-md-6"></div>
+                <div class="col-md-1 total-div-text">Total:</div>
+                <div class="col-md-2 total-sewed-amount">
                   <strong><%= number_to_currency(sewed_clothing_total(@sewed_clothings_on_date), unit: "₱ ") %></strong>
                 </div>
             </div>

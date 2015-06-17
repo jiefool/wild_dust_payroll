@@ -16,8 +16,21 @@
     display:block;
   }
 
-  .sewed-clothing div{
-    float:left;
+  .total-sewed-amount{
+
+  }
+
+  .total-div div{
+    display: inline-block;
+  }
+
+  .total-div-text{
+    margin-left: 60%;
+  }
+
+  .sewed-clothings div{
+    display: inline-block;  
+    width: 15%;
   }
 
   .field-label{
