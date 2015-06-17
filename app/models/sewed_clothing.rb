@@ -10,7 +10,7 @@ class SewedClothing < ActiveRecord::Base
   end
 
   def self.sewed_on_date(date)
-    where("DATE(created_at) LIKE ?", date)
+    where("DATE(created_at) = ?", date)
   end
 end
 
